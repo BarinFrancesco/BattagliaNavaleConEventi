@@ -1,5 +1,4 @@
-﻿using Battaglia_navale;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +10,17 @@ using System.Windows.Forms;
 
 namespace BattagliaNavaleConEventi
 {
+    //enum per la direzione della nave
+    public enum Direzione
+    {
+        Est,
+        Sud,
+        Ovest,
+        Nord
+    }
+
+     
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -23,15 +33,38 @@ namespace BattagliaNavaleConEventi
         int[,] GrigliaDiGioco = new int[10, 10];
         int count;
         int naviaffondate;
-        int[] dimensionebarche = { 1, 1, 1, 1, 2, 2, 3, 3, 4, 5 };
-        CNave[] flotta = new CNave[10];
+        int[] DimensioneBarche = new int[] { 4, 3, 3, 2, 2, 1 };
+        Nave[] flotta = new Nave[10];
         Random generatore = new Random();
 
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Modalità();
             CreazioneCampoDigioco();
+        }
+
+        private int Modalità()
+        {
+            using (FormIniziale form = new FormIniziale())
+            {
+                form.ShowDialog();
+                if(form.DialogResult == DialogResult.OK)
+                {
+                    return 1;
+                    //modalità metti e trova
+                } else if(form.DialogResult == DialogResult.Yes)
+                {
+                    return 2;
+                    //modalità 1v1
+                }
+                else
+                {
+                    return 3;
+                    //modalità 1vscpu
+                }
+            }
         }
 
         private void CreazioneCampoDigioco()
@@ -65,13 +98,13 @@ namespace BattagliaNavaleConEventi
             }
 
             int idnave = 1;
-
-            for (int i = 0; i < dimensionebarche.Length; i++)
+            /*
+            for (int i = 0; i < DimensioneBarche.Length; i++)
             {
-                flotta[i] = new CNave(dimensionebarche[i], generatore, GrigliaDiGioco, idnave);
+                flotta[i] = new Nave(DimensioneBarche[i], generatore, GrigliaDiGioco, idnave);
                 idnave++;
             }
-
+            */
         }
     }
 }
