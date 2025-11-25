@@ -34,7 +34,7 @@ namespace BattagliaNavaleConEventi
         int[,] GrigliaDiGioco = new int[10, 10];
         int count;
         int naviaffondate;
-        int[] DimensioneBarche = new int[] { 3, 2, 2, 1, 1, 0 };
+        int[] DimensioneBarche = new int[] { 4, 3, 3, 2, 2, 1 };
         Nave[] flotta = new Nave[10];
         Random generatore = new Random();
         Direzione direzione = new Direzione();
@@ -75,110 +75,206 @@ namespace BattagliaNavaleConEventi
 
         public void PiazzaNavi()
         {
-            grd_Playground.CellDoubleClick += Grd_Playground_CellDoubleClick;
+            grd_Playground.CellClick+= Grd_Playground_Piazzanave; //CellDoubleClick
             //foreach (int barca in DimensioneBarche) { }
         }
 
-        private void Grd_Playground_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void Grd_Playground_Piazzanave(object sender, DataGridViewCellEventArgs e)
         {
+
             int x = e.ColumnIndex;
             int y = e.RowIndex;
 
+            if (count == DimensioneBarche.Length)
+            {
+                MessageBox.Show("Hai inserito tutte le barche");
+                grd_Playground.CellClick -= Grd_Playground_Piazzanave; //CellDoubleClick
+                GetReadyToPlay();
+                //rendi tutto blu e aggoingi l'evento dello sparo  
+
+                return;
+            }
+
             int dimensione = DimensioneBarche[count];
+            bool approvato;
+            //controlla la direzione, poi per ongi caso controlla col ciclo giusto che non ci siano altre navi nel percorso
             switch (direzione)
             {
                 case Direzione.Nord:
-
-                    if (y - (dimensione) >= 0)
+                     //aggiungo o tolgo 1 dalla coordinata della cella perché la lunghezza va da 1-x e l'indice va da 0-x, quindi mi serve renderli(compatibili)
+                    if (y - (dimensione-1) >= 0)
                     {
-                        bool approvato = true;
-                        
-                        for(int i =0; i < dimensione; i++)
+                        approvato = true;
+
+                        for (int i = 0; i < dimensione; i++)
                         {
-                            if(GrigliaDiGioco[y - i, x] != 0)
+                            if (GrigliaDiGioco[y - i , x] != 0)
                             {
                                 approvato = false;
                                 break;
                             }
-                            
                         }
 
                         if (approvato)
                         {
                             flotta[count] = new Nave(count + 1, (x, y), dimensione, direzione, GrigliaDiGioco);
-                            for (int i = 0; i <= dimensione; i++)
-                            {
-                                grd_Playground.Rows[y - i].Cells[x].Style.BackColor = Color.Gray;
-                            }
-                        } else
-                        {
-                            MessageBox.Show("C'è una nave di mezzo");
-                        }
-                        
 
+                            for (int i = 0; i < dimensione; i++)
+                                grd_Playground.Rows[y - i].Cells[x].Style.BackColor = Color.Gray;
+
+                            count++;
+                        }
+                        else MessageBox.Show("C'è una nave di mezzo");
                     }
-                    else
-                    {
-                        MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
-                    }
+                    else MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
 
                     break;
+
+
                 case Direzione.Est:
 
-                    if (x + dimensione < 10)
+                    if (x + (dimensione-1) < 10)
                     {
+                        approvato = true;
 
-                        for (int i = 0; i <= dimensione; i++)
+                        for (int i = 0; i < dimensione; i++)
                         {
-                            grd_Playground.Rows[y].Cells[x + i].Style.BackColor = Color.Gray;
+                            if (GrigliaDiGioco[y, x + i] != 0)
+                            {
+                                approvato = false;
+                                break;
+                            }
                         }
 
+                        if (approvato)
+                        {
+                            flotta[count] = new Nave(count + 1, (x, y), dimensione, direzione, GrigliaDiGioco);
+
+                            for (int i = 0; i < dimensione; i++)
+                                grd_Playground.Rows[y].Cells[x + i].Style.BackColor = Color.Gray;
+
+                            count++;
+                        }
+                        else MessageBox.Show("C'è una nave di mezzo");
                     }
-                    else
-                    {
-                        MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
-                    }
+                    else MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
 
                     break;
+
+
                 case Direzione.Sud:
 
-                    if (y + dimensione < 10)
+                    if (y + (dimensione-1) < 10)
                     {
+                        approvato = true;
 
-                        for (int i = 0; i <= dimensione; i++)
+                        for (int i = 0; i < dimensione; i++)
                         {
-                            grd_Playground.Rows[y + i].Cells[x].Style.BackColor = Color.Gray;
+                            if (GrigliaDiGioco[y + i, x] != 0)
+                            {
+                                approvato = false;
+                                break;
+                            }
                         }
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
-                    }
+                        if (approvato)
+                        {
+                            flotta[count] = new Nave(count + 1, (x, y), dimensione, direzione, GrigliaDiGioco);
 
+                            for (int i = 0; i < dimensione; i++)
+                                grd_Playground.Rows[y + i].Cells[x].Style.BackColor = Color.Gray;
+
+                            count++;
+                        }
+                        else MessageBox.Show("C'è una nave di mezzo");
+                    }
+                    else MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
 
                     break;
+
+
                 case Direzione.Ovest:
 
-                    if (x - dimensione >= 0)
+                    if (x - (dimensione-1) >= 0)
                     {
+                        approvato = true;
 
-                        for (int i = 0; i <= dimensione; i++)
+                        for (int i = 0; i < dimensione; i++)
                         {
-                            grd_Playground.Rows[y].Cells[x - i].Style.BackColor = Color.Gray;
+                            if (GrigliaDiGioco[y, x - i] != 0)
+                            {
+                                approvato = false;
+                                break;
+                            }
                         }
 
+                        if (approvato)
+                        {
+                            flotta[count] = new Nave(count + 1, (x, y), dimensione, direzione, GrigliaDiGioco);
+
+                            for (int i = 0; i < dimensione; i++)
+                                grd_Playground.Rows[y].Cells[x - i].Style.BackColor = Color.Gray;
+
+                            count++;
+                        }
+                        else MessageBox.Show("C'è una nave di mezzo");
                     }
-                    else
-                    {
-                        MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
-                    }
+                    else MessageBox.Show("Non puoi mettere la barca qui orientata in questa direzione");
 
                     break;
             }
-
-            count ++;
             //MessageBox.Show($"Hai fatto doppio clic sulla cella: Riga {e.RowIndex}, Colonna {e.ColumnIndex}\n Valore: {cellValue}");
+        }
+
+        private void Grd_Playground_Shootcell(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            int x = e.ColumnIndex;
+            int y = e.RowIndex;
+            int cellvalue = GrigliaDiGioco[y, x];
+
+            if ( cellvalue == -1)
+            {
+                MessageBox.Show("Hai già sparato in questa cella");
+            } else if(cellvalue == 0)
+            {
+                MessageBox.Show("Hai sparato all'acqua");
+                grd_Playground.Rows[y].Cells[x].Style.BackColor = Color.DarkBlue;
+                GrigliaDiGioco[y, x] = -1;
+            } else
+            {
+                
+                grd_Playground.Rows[y].Cells[x].Style.BackColor = Color.IndianRed;
+                
+
+                if (flotta[cellvalue - 1].Colpita())
+                {
+                    MessageBox.Show("Colpita ed affondata");
+                    naviaffondate++;
+                    //aggiungi la funzione per rendere nero tutto
+                    //aggiungi il log
+                    //aggiungi i suoni
+                    if(naviaffondate == 10)
+                    {
+                        MessageBox.Show("Hai vinto");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Colpita");
+                }
+
+                GrigliaDiGioco[y, x] = -1;
+            }
+        }
+
+        private void GetReadyToPlay()
+        {
+            btn_Rotate.Location = new Point(btn_Rotate.Location.X, 500);
+            Img_Direction.Location = new Point(Img_Direction.Location.X, 500);
+            grd_Playground.CellClick += Grd_Playground_Shootcell; //CellDoubleClick
+            Lbl_Title.Text = "SPARA ALLE CELLE";
+            CreazioneCampoDigioco();
         }
 
         private void CreazioneCampoDigioco()
@@ -212,24 +308,27 @@ namespace BattagliaNavaleConEventi
             }
 
             int idnave = 1;
-            /*
-            for (int i = 0; i < DimensioneBarche.Length; i++)
-            {
-                flotta[i] = new Nave(DimensioneBarche[i], generatore, GrigliaDiGioco, idnave);
-                idnave++;
-            }
-            */
-        }
-
-        private void btn_Position_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_Rotate_Click(object sender, EventArgs e)
         {
 
             direzione = (Direzione)(((int)direzione + 1) % 4);
-        }
+            switch (direzione)
+            {
+                case Direzione.Nord:
+                    Img_Direction.BackgroundImage = Image.FromFile(@"..\..\..\img\Nord.png");
+                    break;
+                case Direzione.Est:
+                    Img_Direction.BackgroundImage = Image.FromFile(@"..\..\..\img\Est.png");
+                    break;
+                case Direzione.Sud:
+                    Img_Direction.BackgroundImage = Image.FromFile(@"..\..\..\img\Sud.png");
+                    break;
+                case Direzione.Ovest:
+                    Img_Direction.BackgroundImage = Image.FromFile(@"..\..\..\img\Ovest.png");
+                    break;
+            }
+        } 
     }
 }

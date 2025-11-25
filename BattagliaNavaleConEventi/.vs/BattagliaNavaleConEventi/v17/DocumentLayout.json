@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|g:\\francesco\\x scuola\\superiori\\informatica\\compiti\\battaglianavaleconeventi\\battaglianavaleconeventi\\battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|g:\\francesco\\x scuola\\superiori\\informatica\\compiti\\battaglianavaleconeventi\\battaglianavaleconeventi\\battaglianavaleconeventi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\battaglianavaleconeventi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\battaglianavaleconeventi\\nave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\nave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\battaglianavaleconeventi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|g:\\francesco\\x scuola\\superiori\\informatica\\compiti\\battaglianavaleconeventi\\battaglianavaleconeventi\\battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\battaglianavaleconeventi\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|g:\\francesco\\x scuola\\superiori\\informatica\\compiti\\battaglianavaleconeventi\\battaglianavaleconeventi\\battaglianavaleconeventi\\nave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\nave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9C23EC8A-4819-41EC-B783-5C9F134B2F7F}|BattagliaNavaleConEventi\\BattagliaNavaleConEventi.csproj|solutionrelative:battaglianavaleconeventi\\forminiziale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "BattagliaNavaleConEventi\\Form1.Designer.cs",
+              "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\Form1.Designer.cs",
+              "RelativeToolTip": "BattagliaNavaleConEventi\\Form1.Designer.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAADgv0wAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T17:13:00.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FormIniziale.cs",
               "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\FormIniziale.cs",
               "RelativeDocumentMoniker": "BattagliaNavaleConEventi\\FormIniziale.cs",
@@ -50,43 +67,41 @@
               "RelativeToolTip": "BattagliaNavaleConEventi\\FormIniziale.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAgwCIAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T21:58:21.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T21:58:21.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "FormIniziale.cs [Progettazione]",
               "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\FormIniziale.cs",
               "RelativeDocumentMoniker": "BattagliaNavaleConEventi\\FormIniziale.cs",
               "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\FormIniziale.cs [Progettazione]",
               "RelativeToolTip": "BattagliaNavaleConEventi\\FormIniziale.cs [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T19:50:56.146Z",
-              "EditorCaption": " [Progettazione]"
+              "WhenOpened": "2025-11-24T19:50:56.146Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Nave.cs",
               "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\Nave.cs",
               "RelativeDocumentMoniker": "BattagliaNavaleConEventi\\Nave.cs",
               "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\Nave.cs",
               "RelativeToolTip": "BattagliaNavaleConEventi\\Nave.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwCEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T19:36:44.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\Form1.cs",
               "RelativeDocumentMoniker": "BattagliaNavaleConEventi\\Form1.cs",
               "ToolTip": "G:\\FRANCESCO\\x scuola\\Superiori\\Informatica\\COMPITI\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\BattagliaNavaleConEventi\\Form1.cs",
               "RelativeToolTip": "BattagliaNavaleConEventi\\Form1.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAcwD8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAwwP8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T19:32:49.724Z",
               "EditorCaption": ""

@@ -30,21 +30,21 @@ namespace BattagliaNavaleConEventi
                 switch (direzione)
                 {
                     case Direzione.Nord:
-                        Coordinate = (Coordinate.y - 1, Coordinate.x);
+                        Coordinate = (Coordinate.x, Coordinate.y - 1);
                         break;
                     case Direzione.Est:
-                        Coordinate = (Coordinate.y, Coordinate.x + 1);
+                        Coordinate = (Coordinate.x + 1, Coordinate.y);
                         break;
                     case Direzione.Sud:
-                        Coordinate = (Coordinate.y + 1, Coordinate.x);
+                        Coordinate = (Coordinate.x, Coordinate.y + 1);
                         break;
-                    default:
-                        Coordinate = (Coordinate.y, Coordinate.x - 1);
+                    case Direzione.Ovest:
+                        Coordinate = (Coordinate.x - 1, Coordinate.y);
                         break;
                 }
+
             }
         }
-        
 
         //la funzione colpita toglie un pezzo alla nave, poi mi ritorna true se la nave è stata affondata 
         public bool Colpita()
