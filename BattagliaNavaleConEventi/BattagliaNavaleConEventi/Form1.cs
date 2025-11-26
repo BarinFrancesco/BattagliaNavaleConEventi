@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.Threading;
 
 namespace BattagliaNavaleConEventi
 {
@@ -22,6 +24,8 @@ namespace BattagliaNavaleConEventi
      //copia la logica del primo switch sul resto chiedi a chat
     public partial class Form1 : Form
     {
+        SoundPlayer SoundHit = new SoundPlayer(@"..\..\..\sounds\Cannon sound.wav");
+        SoundPlayer SoundMiss = new SoundPlayer(@"..\..\..\sounds\HitSound.wav");
         public Form1()
         {
             InitializeComponent();
@@ -36,9 +40,8 @@ namespace BattagliaNavaleConEventi
         int countmosse;
         int[] DimensioneBarche = new int[] { 4, 3, 3, 2, 2, 1 };
         Nave[] flotta = new Nave[10];
-        Random generatore = new Random();
         Direzione direzione = new Direzione();
-        Nave navegenerica;
+        bool avversario;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,24 +54,22 @@ namespace BattagliaNavaleConEventi
             PiazzaNavi();
         }
 
-        private int Modalità()
+        private void Modalità()
         {
             using (FormIniziale form = new FormIniziale())
             {
                 form.ShowDialog();
                 if(form.DialogResult == DialogResult.OK)
                 {
-                    return 1;
-                    //modalità metti e trova
+                    avversario = true;
                 } else if(form.DialogResult == DialogResult.Yes)
                 {
-                    return 2;
+                    
                     //modalità 1v1
                 }
                 else
                 {
-                    return 3;
-                    //modalità 1vscpu
+                    avversario = false;
                 }
             }
         }
@@ -228,6 +229,47 @@ namespace BattagliaNavaleConEventi
             
         }
 
+
+        private async Task GetReadyToPlay()
+        {
+            pnl_rotate.Location = new Point(430, 500);
+            pnlPlay.Location = new Point(430, 100);
+            grd_Playground.CellClick += Grd_Playground_Shootcell;
+            CreazioneCampoDigioco();
+            Thread.Sleep(2000);
+            if (avversario)
+            {
+                Lbl_Title.Text = "SPARA ALLE CELLE";
+            }
+            else
+            {
+                Lbl_Title.Text = "IL COMPUTER STA SPARANDO ALLE CELLE";
+                await ComputerSpara();
+            }
+
+        }
+
+
+        private async Task ComputerSpara()
+        {
+            Random generatore = new Random(Environment.TickCount);
+            while (count > 0)
+            {
+                int x = generatore.Next(10);
+                int y = generatore.Next(10);
+
+                grd_Playground.CurrentCell = grd_Playground.Rows[y].Cells[x];
+                grd_Playground.Rows[y].Cells[x].Selected = true;
+
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(x, y);
+
+                // Richiama manualmente l'evento CellClick
+                Grd_Playground_Shootcell(grd_Playground, args);
+                await Task.Delay(500);
+            }
+        }
+
+
         private void Grd_Playground_Shootcell(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -239,15 +281,16 @@ namespace BattagliaNavaleConEventi
 
             if ( cellvalue == -1)
             {
-                MessageBox.Show("Hai già sparato in questa cella");
+                lst_Mosse.Items.Add($"Cella:({x},{y}) già colpita");
             } else if(cellvalue == 0)
             {
+                SoundMiss.Play();
                 lst_Mosse.Items.Add("ACQUA!!");
                 grd_Playground.Rows[y].Cells[x].Style.BackColor = Color.DarkBlue;
                 GrigliaDiGioco[y, x] = -1;
             } else
             {
-                
+                SoundHit.Play();
                 grd_Playground.Rows[y].Cells[x].Style.BackColor = Color.IndianRed;
 
                 int index = cellvalue - 1;
@@ -294,19 +337,11 @@ namespace BattagliaNavaleConEventi
             }
         }
 
-        private void GetReadyToPlay()
-        {
-            btn_Rotate.Location = new Point(btn_Rotate.Location.X, 500);
-            Img_Direction.Location = new Point(Img_Direction.Location.X, 500);
-            grd_Playground.CellClick += Grd_Playground_Shootcell; 
-            Lbl_Title.Text = "SPARA ALLE CELLE";
-            pnl_rotate.Location = new Point(430, 500);
-            pnlPlay.Location = new Point(430, 100);
-            CreazioneCampoDigioco();
-        }
+
 
         private void CreazioneCampoDigioco()
         {
+            
             grd_Playground.Columns.Clear();
             grd_Playground.Rows.Clear();
             grd_Playground.RowTemplate.Height = 40;
@@ -334,7 +369,7 @@ namespace BattagliaNavaleConEventi
                     grd_Playground.Rows[i].Cells[c].Style.BackColor = Color.LightBlue;
                 }
             }
-
+            //MessageBox.Show("creo campo");
             int idnave = 1;
         }
 
