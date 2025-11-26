@@ -44,6 +44,22 @@ namespace BattagliaNavaleConEventi
                 }
 
             }
+            //torno indietro per puntare all'ultima cella della nave e non la prima fuori
+            switch (direzione)
+            {
+                case Direzione.Nord:
+                    Coordinate = (Coordinate.x, Coordinate.y + 1);
+                    break;
+                case Direzione.Est:
+                    Coordinate = (Coordinate.x - 1, Coordinate.y);
+                    break;
+                case Direzione.Sud:
+                    Coordinate = (Coordinate.x, Coordinate.y - 1);
+                    break;
+                case Direzione.Ovest:
+                    Coordinate = (Coordinate.x + 1, Coordinate.y);
+                    break;
+            }
         }
 
         //la funzione colpita toglie un pezzo alla nave, poi mi ritorna true se la nave è stata affondata 

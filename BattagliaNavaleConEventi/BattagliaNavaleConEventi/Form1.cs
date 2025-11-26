@@ -33,7 +33,7 @@ namespace BattagliaNavaleConEventi
 
         int[,] GrigliaDiGioco = new int[10, 10];
         int count;
-        int naviaffondate;
+        int countmosse;
         int[] DimensioneBarche = new int[] { 4, 3, 3, 2, 2, 1 };
         Nave[] flotta = new Nave[10];
         Random generatore = new Random();
@@ -44,6 +44,7 @@ namespace BattagliaNavaleConEventi
         private void Form1_Load(object sender, EventArgs e)
         {
             count =0;
+            countmosse = 0;
             direzione = Direzione.Nord;
             Modalità();
             CreazioneCampoDigioco();
@@ -75,8 +76,9 @@ namespace BattagliaNavaleConEventi
 
         public void PiazzaNavi()
         {
-            grd_Playground.CellClick+= Grd_Playground_Piazzanave; //CellDoubleClick
-            //foreach (int barca in DimensioneBarche) { }
+            pnlPlay.Location = new Point(430, 500);
+            pnl_rotate.Location = new Point(430, 100);
+            grd_Playground.CellClick+= Grd_Playground_Piazzanave; 
         }
 
         private void Grd_Playground_Piazzanave(object sender, DataGridViewCellEventArgs e)
@@ -88,7 +90,7 @@ namespace BattagliaNavaleConEventi
             if (count == DimensioneBarche.Length)
             {
                 MessageBox.Show("Hai inserito tutte le barche");
-                grd_Playground.CellClick -= Grd_Playground_Piazzanave; //CellDoubleClick
+                grd_Playground.CellClick -= Grd_Playground_Piazzanave; 
                 GetReadyToPlay();
                 //rendi tutto blu e aggoingi l'evento dello sparo  
 
@@ -223,7 +225,7 @@ namespace BattagliaNavaleConEventi
 
                     break;
             }
-            //MessageBox.Show($"Hai fatto doppio clic sulla cella: Riga {e.RowIndex}, Colonna {e.ColumnIndex}\n Valore: {cellValue}");
+            
         }
 
         private void Grd_Playground_Shootcell(object sender, DataGridViewCellEventArgs e)
@@ -232,36 +234,60 @@ namespace BattagliaNavaleConEventi
             int x = e.ColumnIndex;
             int y = e.RowIndex;
             int cellvalue = GrigliaDiGioco[y, x];
+            countmosse++;
+            lbl_Moves.Text = $"Mosse:\n {countmosse}";
 
             if ( cellvalue == -1)
             {
                 MessageBox.Show("Hai già sparato in questa cella");
             } else if(cellvalue == 0)
             {
-                MessageBox.Show("Hai sparato all'acqua");
+                lst_Mosse.Items.Add("ACQUA!!");
                 grd_Playground.Rows[y].Cells[x].Style.BackColor = Color.DarkBlue;
                 GrigliaDiGioco[y, x] = -1;
             } else
             {
                 
                 grd_Playground.Rows[y].Cells[x].Style.BackColor = Color.IndianRed;
-                
 
-                if (flotta[cellvalue - 1].Colpita())
+                int index = cellvalue - 1;
+
+                if (flotta[index].Colpita())
                 {
+                    //in questo ciclo faccio il movimento al contrario di quello della creazione,
+                    //perché esso mi aveva puntato l'ultima cella 
+                    for(int i = 0; i < DimensioneBarche[index]; i++)
+                    {
+                        switch (flotta[index].direzione)
+                        {
+                            
+                            case Direzione.Nord:
+                                grd_Playground.Rows[flotta[index].Coordinate.y + i].Cells[flotta[index].Coordinate.x].Style.BackColor = Color.Black;
+                                break;
+                            case Direzione.Est:
+                                grd_Playground.Rows[flotta[index].Coordinate.y].Cells[flotta[index].Coordinate.x - i].Style.BackColor = Color.Black;
+                                break;
+                            case Direzione.Sud:
+                                grd_Playground.Rows[flotta[index].Coordinate.y - i].Cells[flotta[index].Coordinate.x].Style.BackColor = Color.Black;
+                                break;
+                            case Direzione.Ovest:
+                                grd_Playground.Rows[flotta[index].Coordinate.y].Cells[flotta[index].Coordinate.x + i].Style.BackColor = Color.Black;
+                                break;
+                        }
+                    }
+                        
                     MessageBox.Show("Colpita ed affondata");
-                    naviaffondate++;
-                    //aggiungi la funzione per rendere nero tutto
-                    //aggiungi il log
+                    count--;
+                    lbl_Navirimaste.Text = lbl_Navirimaste.Text = $"Navi Rimaste: \n{count}";
                     //aggiungi i suoni
-                    if(naviaffondate == 10)
+                    if (count == 0)
                     {
                         MessageBox.Show("Hai vinto");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Colpita");
+                    lst_Mosse.Items.Add($"Colpito in posizione({x},{y})");
                 }
 
                 GrigliaDiGioco[y, x] = -1;
@@ -272,8 +298,10 @@ namespace BattagliaNavaleConEventi
         {
             btn_Rotate.Location = new Point(btn_Rotate.Location.X, 500);
             Img_Direction.Location = new Point(Img_Direction.Location.X, 500);
-            grd_Playground.CellClick += Grd_Playground_Shootcell; //CellDoubleClick
+            grd_Playground.CellClick += Grd_Playground_Shootcell; 
             Lbl_Title.Text = "SPARA ALLE CELLE";
+            pnl_rotate.Location = new Point(430, 500);
+            pnlPlay.Location = new Point(430, 100);
             CreazioneCampoDigioco();
         }
 
